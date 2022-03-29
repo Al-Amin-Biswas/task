@@ -1,0 +1,63 @@
+<?php 
+//  $con = mysqli_connect("localhost", "root","","minipro");
+
+// // Check connection
+// if (!$con) {
+//   die("Connection failed: " . mysqli_connect_error());
+// }
+// //echo "Connected successfully";
+// $size= $_POST['name'];
+// $age= $_POST['age'];
+// $qry1="INSERT INTO parents (name) VALUES ('$size')";
+
+//         $result1=mysqli_query($con,$qry1);
+//         $product_size_id = mysqli_insert_id($con);
+//         $qry2="INSERT INTO child (age,pid) VALUES ('$age','$product_size_id ')"; 
+//         //echo $product_size_id; 
+//         $result=mysqli_query($con,$qry2);
+//$product_size_id = insert_id($conn);
+//$data = $conn -> insert_id;
+$conn = new mysqli("localhost", "root","","pakainfo_v1");
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+//echo "Connected successfully";
+
+$name = $_POST['name'];
+$image = basename($_FILES['image']['name']);
+$temp = $_FILES['image']['tmp_name'];
+$size = $_FILES['image']['size'];
+$type = $_FILES['image']['type'];
+$fileError = $_FILES['image']['error'];
+$imgExt = explode('.', $image);
+$actuExp = strtolower(end($imgExt));
+$allow = array('jpg','png','jpeg');
+if (in_array($actuExp , $allow)) {
+    if ($fileError === 0) {
+        if ($size < 500000) {
+            $newName= uniqid('', true).'.'.$actuExp;
+            $destination = 'upload/'.$newName;
+            //echo $destination;
+            move_uploaded_file($temp, $destination);
+        }
+    }
+}
+else{
+    echo "Not allow this type file";
+}
+
+
+$resume = basename($_FILES['docu']['name']);
+$resumetemp = $_FILES['docu']['tmp_name'];
+$resumesize = $_FILES['docu']['size'];
+$resumetype = $_FILES['docu']['type'];
+
+//echo $resumetemp;
+//$qry1="INSERT INTO parents (name) VALUES ('$size')";
+//$result1=$conn->query($qry1);
+
+
+
+ ?>

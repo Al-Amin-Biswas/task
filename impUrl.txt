@@ -1,0 +1,6 @@
+1. https://laratutorials.com/image-crop-and-save-into-database-using-php-jquery-ajax/?ref=morioh.com&utm_source=morioh.com
+
+2. https://laratutorials.com/category-subcategory-dropdown-in-php-mysql-ajax/?ref=morioh.com&utm_source=morioh.com
+
+
+3.https://www.itsolutionstuff.com/post/add-remove-multiple-input-fields-dynamically-with-jquery-laravel-58example.html

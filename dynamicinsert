@@ -1,0 +1,35 @@
+
+<?php  
+  
+    define (DB_USER, "root");  
+    define (DB_PASSWORD, "");  
+    define (DB_DATABASE, "pakainfo_v1");  
+    define (DB_HOST, "localhost");  
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);  
+  
+	$visitorData = count($_POST["name"]);
+	
+	if ($visitorData > 0) {
+	    for ($i=0; $i < $visitorData; $i++) { 
+		if (trim($_POST['name'] != '') && trim($_POST['age'] != '')) {
+			$name   = $_POST["name"][$i];
+			$age  = $_POST["age"][$i];
+			$sql  = "INSERT INTO tagslist (name,age) VALUES ('$name','$age')";
+			$mysqli->query($sql); 
+		}
+	    }
+	    echo "Data inserted successfully";
+	}else{
+	    echo "Please Enter visitor name";
+	}
+}
+    // if(!empty($_POST["name"])){  
+  
+    //     foreach ($_POST["name"] as $key => $value) {  
+    //         $sql = "INSERT INTO tagslist(name) VALUES ('".$value."')";  
+    //         $mysqli->query($sql);  
+    //     }  
+    //     echo json_encode(['success'=>'Names Inserted successfully.']);  
+    // }  
+  
+?>  

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<input type="radio" id="yesbtn" name="fav_language" value="HTML">
+<label for="html">Yes</label><br>
+<input type="radio" id="nobtn" name="fav_language" value="CSS">
+<label for="css">No</label><br>
+<p id="test1">father name</p>
+
+
+
+
+<script>
+$(document).ready(function(){
+  $("#nobtn").click(function(){
+    $("#test1").text("mother name");
+  });
+  $("#yesbtn").click(function(){
+    $("#test1").text("father name");
+  });
+});
+</script>
+
+</body>
+</html>
